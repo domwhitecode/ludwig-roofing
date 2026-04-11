@@ -2,12 +2,14 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
+import PhotoCarousel from "@/components/PhotoCarousel";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
       <Services />
+      <PhotoCarousel />
       <WhyUs />
 
       <section className="bg-white py-16 md:py-20">
