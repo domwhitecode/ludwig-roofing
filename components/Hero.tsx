@@ -42,7 +42,7 @@ export default function Hero() {
         <div className="flex justify-center md:justify-end">
           <div className="rounded-2xl bg-white p-10 shadow-xl ring-1 ring-slate-100 sm:p-12">
             <Image
-              src="/ludwigs_logo.svg"
+              src="/ludwigs_logo_minimal.svg"
               alt="Ludwig's Roofing & Exteriors logo"
               width={800}
               height={800}
