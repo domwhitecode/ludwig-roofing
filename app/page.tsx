@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
 import PhotoCarousel from "@/components/PhotoCarousel";
+import ReviewCTA from "@/components/ReviewCTA";
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
       <Services />
       <PhotoCarousel />
       <WhyUs />
+      <ReviewCTA />
 
       <section className="bg-white py-16 md:py-20">
         <div className="container-page">
