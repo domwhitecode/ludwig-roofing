@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#ffffff"/>
+  <g fill="#1e3a8a">
+    <path d="M80 270 L300 110 L520 270 L470 270 L300 150 L130 270 Z"/>
+    <rect x="270" y="180" width="60" height="60"/>
+  </g>
+  <text x="300" y="350" font-family="Georgia, serif" font-size="72" font-weight="700" text-anchor="middle" fill="#000">LUDWIG'S</text>
+  <text x="300" y="395" font-family="Georgia, serif" font-size="28" font-weight="700" text-anchor="middle" fill="#000">ROOFING &amp; EXTERIORS</text>
+  <text x="300" y="460" font-family="Georgia, serif" font-size="46" font-weight="700" text-anchor="middle" fill="#000">267-328-0819</text>
+  <text x="300" y="500" font-family="Georgia, serif" font-size="20" text-anchor="middle" fill="#000">ROOFING, SIDING, EXTERIOR PAINTING,</text>
+  <text x="300" y="525" font-family="Georgia, serif" font-size="20" text-anchor="middle" fill="#000">CUSTOM METAL, AND GUTTERS</text>
+</svg>
