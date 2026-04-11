@@ -40,13 +40,13 @@ export default function Hero() {
         </div>
 
         <div className="flex justify-center md:justify-end">
-          <div className="rounded-2xl bg-white p-6 shadow-xl ring-1 ring-slate-200">
+          <div className="rounded-2xl bg-white p-10 shadow-xl ring-1 ring-slate-100 sm:p-12">
             <Image
-              src="/logo.svg"
+              src="/ludwigs_logo.svg"
               alt="Ludwig's Roofing & Exteriors logo"
-              width={420}
-              height={420}
-              className="h-auto w-full max-w-sm object-contain"
+              width={800}
+              height={800}
+              className="h-auto w-full max-w-2xl object-contain"
               priority
             />
           </div>

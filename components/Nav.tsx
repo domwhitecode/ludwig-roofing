@@ -12,7 +12,7 @@ export default function Nav() {
       <div className="container-page flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <Image
-            src="/logo.svg"
+            src="/ludwigs_logo.svg"
             alt="Ludwig's Roofing & Exteriors — Philadelphia roofing contractor"
             width={40}
             height={40}

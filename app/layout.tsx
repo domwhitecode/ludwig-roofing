@@ -32,23 +32,22 @@ export const metadata: Metadata = {
     title: "Ludwig's Roofing & Exteriors | Philadelphia Roofing Contractor",
     description:
       "Roofing, siding, exterior painting, custom metal, and gutters in Philadelphia. Free estimates — call 267-328-0819.",
-    images: [{ url: "/logo.svg", width: 600, height: 600, alt: "Ludwig's Roofing & Exteriors logo", type: "image/svg+xml" }],
+    images: [{ url: "/ludwigs_logo.svg", width: 600, height: 600, alt: "Ludwig's Roofing & Exteriors logo", type: "image/svg+xml" }],
   },
   twitter: {
     card: "summary",
     title: "Ludwig's Roofing & Exteriors",
     description: "Philadelphia's trusted roofing & exteriors contractor.",
-    images: ["/logo.svg"],
+    images: ["/ludwigs_logo.svg"],
   },
   robots: { index: true, follow: true },
-  icons: { icon: "/favicon.ico" },
 };
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "RoofingContractor",
   name: "Ludwig's Roofing & Exteriors",
-  image: `${siteUrl}/logo.png`,
+  image: `${siteUrl}/ludwigs_logo.svg`,
   url: siteUrl,
   telephone: "+1-267-328-0819",
   email: "Eludwig1126@gmail.com",
