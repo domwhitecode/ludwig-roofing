@@ -13,22 +13,48 @@ const empty: ContactInput = {
 };
 
 type Status = { kind: "idle" } | { kind: "loading" } | { kind: "ok" } | { kind: "error"; msg: string };
+type FieldErrors = Partial<Record<keyof ContactInput, string>>;
 
 export default function ContactForm() {
   const [values, setValues] = useState<ContactInput>(empty);
   const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
   function update<K extends keyof ContactInput>(key: K, v: ContactInput[K]) {
     setValues((prev) => ({ ...prev, [key]: v }));
+    setFieldErrors((prev) => {
+      if (!prev[key]) return prev;
+      const next = { ...prev };
+      delete next[key];
+      return next;
+    });
+  }
+
+  function validateField(key: keyof ContactInput) {
+    const value = values[key] ?? "";
+    if (value.trim() === "") return;
+    const result = contactSchema.shape[key].safeParse(value);
+    if (!result.success) {
+      const msg = result.error.issues[0]?.message ?? "Invalid input";
+      setFieldErrors((prev) => ({ ...prev, [key]: msg }));
+    }
   }
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     const parsed = contactSchema.safeParse(values);
     if (!parsed.success) {
-      setStatus({ kind: "error", msg: parsed.error.issues[0]?.message ?? "Invalid input" });
+      const flat = parsed.error.flatten().fieldErrors;
+      const errs: FieldErrors = {};
+      (Object.keys(flat) as Array<keyof ContactInput>).forEach((k) => {
+        const msg = flat[k]?.[0];
+        if (msg) errs[k] = msg;
+      });
+      setFieldErrors(errs);
+      setStatus({ kind: "idle" });
       return;
     }
+    setFieldErrors({});
     setStatus({ kind: "loading" });
     try {
       const res = await fetch("/api/contact", {
@@ -84,54 +110,69 @@ export default function ContactForm() {
       />
 
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="Name" required>
+        <Field label="Name" required error={fieldErrors.name} htmlFor="contact-name">
           <input
+            id="contact-name"
             type="text"
             required
             autoComplete="name"
             value={values.name}
             onChange={(e) => update("name", e.target.value)}
-            className={inputCls}
+            aria-invalid={fieldErrors.name ? true : undefined}
+            aria-describedby={fieldErrors.name ? "contact-name-error" : undefined}
+            className={inputCls(!!fieldErrors.name)}
           />
         </Field>
-        <Field label="Email" required>
+        <Field label="Email" required error={fieldErrors.email} htmlFor="contact-email">
           <input
+            id="contact-email"
             type="email"
             required
             autoComplete="email"
             value={values.email}
             onChange={(e) => update("email", e.target.value)}
-            className={inputCls}
+            onBlur={() => validateField("email")}
+            aria-invalid={fieldErrors.email ? true : undefined}
+            aria-describedby={fieldErrors.email ? "contact-email-error" : undefined}
+            className={inputCls(!!fieldErrors.email)}
           />
         </Field>
-        <Field label="Phone" required>
+        <Field label="Phone" required error={fieldErrors.phone} htmlFor="contact-phone">
           <input
+            id="contact-phone"
             type="tel"
             required
             autoComplete="tel"
             value={values.phone}
             onChange={(e) => update("phone", e.target.value)}
-            className={inputCls}
+            onBlur={() => validateField("phone")}
+            aria-invalid={fieldErrors.phone ? true : undefined}
+            aria-describedby={fieldErrors.phone ? "contact-phone-error" : undefined}
+            className={inputCls(!!fieldErrors.phone)}
           />
         </Field>
-        <Field label="Address" required>
+        <Field label="Address" required error={fieldErrors.address} htmlFor="contact-address">
           <input
+            id="contact-address"
             type="text"
             required
             autoComplete="street-address"
             value={values.address}
             onChange={(e) => update("address", e.target.value)}
-            className={inputCls}
+            aria-invalid={fieldErrors.address ? true : undefined}
+            aria-describedby={fieldErrors.address ? "contact-address-error" : undefined}
+            className={inputCls(!!fieldErrors.address)}
           />
         </Field>
       </div>
 
-      <Field label="Message (optional)">
+      <Field label="Message (optional)" error={fieldErrors.message} htmlFor="contact-message">
         <textarea
+          id="contact-message"
           rows={5}
           value={values.message}
           onChange={(e) => update("message", e.target.value)}
-          className={inputCls}
+          className={inputCls(!!fieldErrors.message)}
           placeholder="Tell us about your project — type of work, timeline, anything else we should know."
         />
       </Field>
@@ -152,25 +193,40 @@ export default function ContactForm() {
   );
 }
 
-const inputCls =
-  "block w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-base text-slate-900 shadow-sm transition placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30 min-h-11";
+function inputCls(hasError: boolean) {
+  return [
+    "block w-full rounded-lg border bg-white px-3 py-3 text-base text-slate-900 shadow-sm transition placeholder:text-slate-400 focus:outline-none focus:ring-2 min-h-11",
+    hasError
+      ? "border-red-400 focus:border-red-500 focus:ring-red-500/30"
+      : "border-slate-300 focus:border-brand focus:ring-brand/30",
+  ].join(" ");
+}
 
 function Field({
   label,
   required,
+  error,
+  htmlFor,
   children,
 }: {
   label: string;
   required?: boolean;
+  error?: string;
+  htmlFor?: string;
   children: React.ReactNode;
 }) {
   return (
-    <label className="block">
-      <span className="mb-1.5 block text-sm font-semibold text-slate-900">
+    <div className="block">
+      <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-semibold text-slate-900">
         {label}
         {required && <span className="ml-1 text-red-600">*</span>}
-      </span>
+      </label>
       {children}
-    </label>
+      {error && (
+        <p id={htmlFor ? `${htmlFor}-error` : undefined} className="mt-1.5 text-sm text-red-600">
+          {error}
+        </p>
+      )}
+    </div>
   );
 }

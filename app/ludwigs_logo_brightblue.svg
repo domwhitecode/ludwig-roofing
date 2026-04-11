@@ -1,0 +1,18 @@
+<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius: 12px;"><defs><mask id="imagine-text-gaps-woeajp" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="400" height="260" fill="white"/><rect x="59.20746994018555" y="107.66667175292969" width="281.5850830078125" height="66.22222518920898" fill="black" rx="2"/><rect x="84.35504150390625" y="166" width="231.28994750976562" height="16.22222328186035" fill="black" rx="2"/><rect x="134.17709350585938" y="199.55555725097656" width="131.64583587646484" height="21.77777862548828" fill="black" rx="2"/></mask></defs>
+
+  <!-- Roof: single clean chevron -->
+  <polyline points="148,110 200,62 252,110" fill="none" stroke="#1D5EF5" stroke-width="10" stroke-linejoin="miter" stroke-linecap="butt" mask="url(#imagine-text-gaps-woeajp)" style="fill:none;stroke:rgb(29, 94, 245);color:rgb(255, 255, 255);stroke-width:10px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- LUDWIG'S -->
+  <text x="200" y="158" font-family="'Arial Black', Arial, sans-serif" font-size="44" font-weight="900" letter-spacing="4" fill="#1D5EF5" text-anchor="middle" style="fill:rgb(29, 94, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Arial Black&quot;, Arial, sans-serif;font-size:44px;font-weight:900;text-anchor:middle;dominant-baseline:auto">LUDWIG'S</text>
+
+  <!-- Subtitle -->
+  <text x="200" y="178" font-family="Arial, sans-serif" font-size="11" font-weight="400" letter-spacing="5" fill="#1D5EF5" text-anchor="middle" style="fill:rgb(29, 94, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">ROOFING &amp; EXTERIORS</text>
+
+  <!-- Divider -->
+  <line x1="120" y1="192" x2="280" y2="192" stroke="#1D5EF5" stroke-width="0.75" opacity="0.3" style="fill:rgb(0, 0, 0);stroke:rgb(29, 94, 245);color:rgb(255, 255, 255);stroke-width:0.75px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Phone -->
+  <text x="200" y="216" font-family="Arial, sans-serif" font-size="16" font-weight="400" letter-spacing="2" fill="#1D5EF5" text-anchor="middle" style="fill:rgb(29, 94, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:16px;font-weight:400;text-anchor:middle;dominant-baseline:auto">267-328-0819</text>
+
+</svg>

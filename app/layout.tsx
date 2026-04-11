@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
+import { Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+
+const bebas = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-bebas",
+  display: "swap",
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -32,23 +40,22 @@ export const metadata: Metadata = {
     title: "Ludwig's Roofing & Exteriors | Philadelphia Roofing Contractor",
     description:
       "Roofing, siding, exterior painting, custom metal, and gutters in Philadelphia. Free estimates — call 267-328-0819.",
-    images: [{ url: "/logo.svg", width: 600, height: 600, alt: "Ludwig's Roofing & Exteriors logo", type: "image/svg+xml" }],
+    images: [{ url: "/ludwigs_logo.svg", width: 600, height: 600, alt: "Ludwig's Roofing & Exteriors logo", type: "image/svg+xml" }],
   },
   twitter: {
     card: "summary",
     title: "Ludwig's Roofing & Exteriors",
     description: "Philadelphia's trusted roofing & exteriors contractor.",
-    images: ["/logo.svg"],
+    images: ["/ludwigs_logo.svg"],
   },
   robots: { index: true, follow: true },
-  icons: { icon: "/favicon.ico" },
 };
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "RoofingContractor",
   name: "Ludwig's Roofing & Exteriors",
-  image: `${siteUrl}/logo.png`,
+  image: `${siteUrl}/ludwigs_logo.svg`,
   url: siteUrl,
   telephone: "+1-267-328-0819",
   email: "Eludwig1126@gmail.com",
@@ -86,7 +93,7 @@ const localBusinessJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={bebas.variable}>
       <body>
         <script
           type="application/ld+json"

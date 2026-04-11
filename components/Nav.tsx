@@ -12,15 +12,18 @@ export default function Nav() {
       <div className="container-page flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <Image
-            src="/logo.svg"
+            src="/ludwigs_logo_minimal.svg"
             alt="Ludwig's Roofing & Exteriors — Philadelphia roofing contractor"
             width={40}
             height={40}
             className="h-10 w-10 object-contain"
             priority
           />
-          <span className="text-lg font-bold text-slate-900">
-            Ludwig&apos;s <span className="text-brand">Roofing</span>
+          <span
+            className="text-xl font-black tracking-widest text-slate-900"
+            style={{ fontFamily: '"Arial Black", Arial, sans-serif' }}
+          >
+            LUDWIG&apos;S <span className="text-brand">ROOFING</span>
           </span>
         </Link>
 

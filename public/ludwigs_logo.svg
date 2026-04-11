@@ -1,0 +1,42 @@
+<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap');
+    </style>
+  </defs>
+
+  <rect width="400" height="260" fill="#ffffff"/>
+
+  <!-- Chevron -->
+  <polyline points="148,110 200,62 252,110"
+    fill="none" stroke="#1B2A6B" stroke-width="10"
+    stroke-linejoin="miter" stroke-linecap="butt"/>
+
+  <!-- LUDWIG'S -->
+  <text x="200" y="158"
+    font-family="'Bebas Neue', sans-serif"
+    font-size="52"
+    letter-spacing="4"
+    fill="#1B2A6B"
+    text-anchor="middle">LUDWIG'S</text>
+
+  <!-- Subtitle -->
+  <text x="200" y="180"
+    font-family="'Bebas Neue', sans-serif"
+    font-size="15"
+    letter-spacing="6"
+    fill="#1B2A6B"
+    text-anchor="middle">ROOFING &amp; EXTERIORS</text>
+
+  <!-- Divider -->
+  <line x1="120" y1="194" x2="280" y2="194" stroke="#1B2A6B" stroke-width="0.75" opacity="0.3"/>
+
+  <!-- Phone -->
+  <text x="200" y="218"
+    font-family="'Bebas Neue', sans-serif"
+    font-size="22"
+    letter-spacing="3"
+    fill="#1B2A6B"
+    text-anchor="middle">267-328-0819</text>
+
+</svg>
