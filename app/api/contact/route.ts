@@ -25,6 +25,8 @@ export async function POST(req: Request) {
   }
 
   const to = process.env.CONTACT_TO_EMAIL || "Eludwig1126@gmail.com";
+  const from =
+    process.env.CONTACT_FROM_EMAIL || "Ludwig's Roofing <quotes@ludwigroofing.org>";
   const apiKey = process.env.RESEND_API_KEY;
 
   const subject = `New quote request from ${name}`;
@@ -45,7 +47,7 @@ export async function POST(req: Request) {
   try {
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
-      from: "Ludwig's Roofing <onboarding@resend.dev>",
+      from,
       to: [to],
       replyTo: email,
       subject,
