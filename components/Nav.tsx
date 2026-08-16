@@ -34,8 +34,8 @@ export default function Nav() {
           <Link href="/contact" className="text-sm font-semibold text-slate-700 hover:text-brand">
             Contact
           </Link>
-          <a href="tel:+12673280819" className="btn-primary px-4 py-2 text-sm">
-            267-328-0819
+          <a href="tel:+12673280819" className="btn-primary min-w-[8rem] px-4 py-2 text-sm">
+            Call
           </a>
         </nav>
 
@@ -73,8 +73,8 @@ export default function Nav() {
             >
               Contact
             </Link>
-            <a href="tel:+12673280819" className="btn-primary mt-2">
-              Call 267-328-0819
+            <a href="tel:+12673280819" className="btn-primary mt-2 min-w-[12rem]">
+              Call
             </a>
           </div>
         </div>

@@ -22,8 +22,8 @@ export default function Hero() {
             <Link href="/contact" className="btn-primary">
               Get a Free Quote
             </Link>
-            <a href="tel:+12673280819" className="btn-secondary">
-              Call 267-328-0819
+            <a href="tel:+12673280819" className="btn-secondary min-w-[12rem]">
+              Call
             </a>
           </div>
           <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">

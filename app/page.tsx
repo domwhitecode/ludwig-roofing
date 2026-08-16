@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
 import PhotoCarousel from "@/components/PhotoCarousel";
+import ReviewCTA from "@/components/ReviewCTA";
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
       <Services />
       <PhotoCarousel />
       <WhyUs />
+      <ReviewCTA />
 
       <section className="bg-white py-16 md:py-20">
         <div className="container-page">
@@ -49,9 +51,9 @@ export default function HomePage() {
               </Link>
               <a
                 href="tel:+12673280819"
-                className="inline-flex min-h-11 items-center justify-center rounded-lg border border-white/40 px-6 py-3 text-base font-semibold text-white transition hover:bg-white/10"
+                className="inline-flex min-h-11 min-w-[12rem] items-center justify-center rounded-lg border border-white/40 px-6 py-3 text-base font-semibold text-white transition hover:bg-white/10"
               >
-                Call 267-328-0819
+                Call
               </a>
             </div>
           </div>
