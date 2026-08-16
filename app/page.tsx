@@ -51,9 +51,9 @@ export default function HomePage() {
               </Link>
               <a
                 href="tel:+12673280819"
-                className="inline-flex min-h-11 items-center justify-center rounded-lg border border-white/40 px-6 py-3 text-base font-semibold text-white transition hover:bg-white/10"
+                className="inline-flex min-h-11 min-w-[12rem] items-center justify-center rounded-lg border border-white/40 px-6 py-3 text-base font-semibold text-white transition hover:bg-white/10"
               >
-                Call 267-328-0819
+                Call
               </a>
             </div>
           </div>
