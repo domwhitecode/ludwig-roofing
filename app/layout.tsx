@@ -3,6 +3,7 @@ import { Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { SITE_URL } from "@/lib/site";
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -11,61 +12,58 @@ const bebas = Bebas_Neue({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Ludwig's Roofing & Exteriors | Philadelphia Roofing Contractor",
     template: "%s | Ludwig's Roofing & Exteriors",
   },
   description:
     "Philadelphia's trusted roofing contractor. Roofing, siding, exterior painting, custom metal, and gutters. Licensed, insured, and locally owned. Free estimates — call 267-328-0819.",
-  keywords: [
-    "roofing contractor Philadelphia",
-    "Philadelphia roofer",
-    "roof repair Philadelphia",
-    "siding contractor Philadelphia",
-    "gutter installation Philadelphia",
-    "exterior painting Philadelphia",
-    "custom metal roofing",
-    "Ludwig's Roofing",
-  ],
+  alternates: { canonical: "/" },
   authors: [{ name: "Ludwig's Roofing & Exteriors" }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
+    url: SITE_URL,
     siteName: "Ludwig's Roofing & Exteriors",
     title: "Ludwig's Roofing & Exteriors | Philadelphia Roofing Contractor",
     description:
       "Roofing, siding, exterior painting, custom metal, and gutters in Philadelphia. Free estimates — call 267-328-0819.",
-    images: [{ url: "/ludwigs_logo.svg", width: 600, height: 600, alt: "Ludwig's Roofing & Exteriors logo", type: "image/svg+xml" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Ludwig's Roofing & Exteriors",
     description: "Philadelphia's trusted roofing & exteriors contractor.",
-    images: ["/ludwigs_logo.svg"],
   },
   robots: { index: true, follow: true },
 };
 
+const SERVICES = [
+  "Roofing",
+  "Siding",
+  "Exterior Painting",
+  "Custom Metal",
+  "Gutters",
+];
+
+// Service-area business: no storefront, so the address carries city/state only
+// and `areaServed` defines where we actually work.
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "RoofingContractor",
+  "@id": `${SITE_URL}/#business`,
   name: "Ludwig's Roofing & Exteriors",
-  image: `${siteUrl}/ludwigs_logo.svg`,
-  url: siteUrl,
+  image: `${SITE_URL}/opengraph-image`,
+  logo: `${SITE_URL}/ludwigs_logo.svg`,
+  url: SITE_URL,
   telephone: "+1-267-328-0819",
   email: "Eludwig1126@gmail.com",
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "REPLACE WITH STREET ADDRESS",
     addressLocality: "Philadelphia",
     addressRegion: "PA",
-    postalCode: "REPLACE",
     addressCountry: "US",
   },
   areaServed: [
@@ -74,6 +72,14 @@ const localBusinessJsonLd = {
     { "@type": "AdministrativeArea", name: "Montgomery County" },
     { "@type": "AdministrativeArea", name: "Delaware County" },
   ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Roofing & Exterior Services",
+    itemListElement: SERVICES.map((service) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: service },
+    })),
+  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -88,7 +94,9 @@ const localBusinessJsonLd = {
       closes: "14:00",
     },
   ],
-  sameAs: [],
+  // TODO: add `sameAs: [...]` with the Google Business Profile URL once the
+  // listing is claimed, plus any social profiles. That link is how Google ties
+  // this site to the map listing.
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
